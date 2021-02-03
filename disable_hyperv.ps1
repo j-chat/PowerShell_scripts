@@ -3,7 +3,9 @@
 
 
 if((Get-WindowsOptionalFeature -FeatureName Microsoft-Hyper-V-All -Online).State -eq "Enabled") {
-  Write-Host "Hyper-V is enabled."
+        Write-Host "Hyper-V is enabled."
 	Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-Hypervisor
 	Write-Host "Hyper-V is now disabled."
+}  else {
+	Write-Host "Hyper-V was already disabled."
 }
